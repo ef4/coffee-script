@@ -881,6 +881,7 @@ exports.Class = class Class extends Base
     @ensureConstructor name
     @body.expressions.unshift new Extends lname, @parent if @parent
     @body.expressions.unshift @ctor unless @ctor instanceof Code
+    @body.expressions.push new Assign (new Value lname, [new Access new Literal "classname"]), (new Value new Literal "'#{name}'")
     @body.expressions.push lname
     @addBoundFunctions o
 
